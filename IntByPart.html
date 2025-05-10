@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration by Parts | Integral Calculus</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Integral Calculus Tutorial</h1>
+        <div class="menu-toggle" id="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+    </header>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <h3>Integral Calculus</h3>
+        <a href="index.html">Home</a>
+        <a href="intro.html">Introduction</a>
+        <a href="BasicInt.html">Basic Integrals</a>
+        <a href="sub.html">Substitution</a>
+        <a href="IntByPart.html">Integration by Parts</a>
+        <a href="DefInt.html">Definite Integrals</a>
+        <a href="App.html">Applications</a>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h2>Integration by Parts</h2>
+            <div class="nav-buttons">
+                <a href="sub.html">← Previous</a>
+                <a href="DefInt.html">Next →</a>
+            </div>
+
+            <div class="theory-section">
+                <h3>The Integration by Parts Formula</h3>
+                <p>This method is derived from the product rule of differentiation and is useful for integrals involving
+                    products of functions.</p>
+
+                <div class="formula-box highlight">
+                    <p>∫ u dv = uv - ∫ v du</p>
+                </div>
+
+                <div class="method-steps">
+                    <h4>How to Apply the Method:</h4>
+                    <ol>
+                        <li>Identify parts of the integrand to set as <em>u</em> and <em>dv</em> (LIATE rule can help)
+                        </li>
+                        <li>Differentiate <em>u</em> to find <em>du</em></li>
+                        <li>Integrate <em>dv</em> to find <em>v</em></li>
+                        <li>Apply the integration by parts formula</li>
+                        <li>Simplify and solve the resulting integral</li>
+                    </ol>
+
+                    <div class="tip-box">
+                        <h4>LIATE Rule (Priority order for choosing u):</h4>
+                        <ul>
+                            <li><strong>L</strong>ogarithmic functions (ln x)</li>
+                            <li><strong>I</strong>nverse trigonometric functions (arctan x)</li>
+                            <li><strong>A</strong>lgebraic functions (xⁿ)</li>
+                            <li><strong>T</strong>rigonometric functions (sin x)</li>
+                            <li><strong>E</strong>xponential functions (eˣ)</li>
+                            <div class="video-container">
+                                <div class="thumbnail-container">
+                                    <!-- Thumbnail image -->
+                                    <img src="Assets/Integration by Parts Thumbnail.jpg" alt="Video Thumbnail" class="video-thumbnail">
+                                    <!-- Play button icon -->
+                                    <button class="play-button" onclick="playVideo()">&#9654;</button>
+                                </div>
+            
+                                <video id="video" width="850" controls>
+                                    <source src="Assets/Integration By Parts.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+
+                            <p style="font-style: italic; font-size: 14px; color: gray;">Video credit: <strong>The
+                                    Organic Chemistry Tutor</strong>. All rights reserved.</p>
+                    </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="examples-section">
+            <h3>Worked Examples</h3>
+
+            <div class="example">
+                <h4>Example 1: Basic Application</h4>
+                <p>Find ∫ x eˣ dx</p>
+                <div class="solution" id="solution1">
+                    <button onclick="toggleSolution('solution1')">Show Solution</button>
+                    <div class="hidden-content">
+                        <p>Let u = x ⇒ du = dx</p>
+                        <p>Let dv = eˣ dx ⇒ v = eˣ</p>
+                        <p>Apply the formula:</p>
+                        <p>∫ x eˣ dx = uv - ∫ v du = x eˣ - ∫ eˣ dx</p>
+                        <p>= x eˣ - eˣ + C = eˣ(x - 1) + C</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>Example 2: Logarithmic Function</h4>
+                <p>Find ∫ ln x dx</p>
+                <div class="solution" id="solution2">
+                    <button onclick="toggleSolution('solution2')">Show Solution</button>
+                    <div class="hidden-content">
+                        <p>Let u = ln x ⇒ du = (1/x) dx</p>
+                        <p>Let dv = dx ⇒ v = x</p>
+                        <p>Apply the formula:</p>
+                        <p>∫ ln x dx = x ln x - ∫ x (1/x) dx</p>
+                        <p>= x ln x - ∫ 1 dx = x ln x - x + C</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>Example 3: Repeated Application</h4>
+                <p>Find ∫ x² sin x dx</p>
+                <div class="solution" id="solution3">
+                    <button onclick="toggleSolution('solution3')">Show Solution</button>
+                    <div class="hidden-content">
+                        <p>First application:</p>
+                        <p>Let u = x² ⇒ du = 2x dx</p>
+                        <p>Let dv = sin x dx ⇒ v = -cos x</p>
+                        <p>∫ x² sin x dx = -x² cos x + ∫ 2x cos x dx</p>
+                        <p>Second application (on the new integral):</p>
+                        <p>Let u = 2x ⇒ du = 2 dx</p>
+                        <p>Let dv = cos x dx ⇒ v = sin x</p>
+                        <p>∫ 2x cos x dx = 2x sin x - ∫ 2 sin x dx</p>
+                        <p>= 2x sin x + 2 cos x + C</p>
+                        <p>Final answer:</p>
+                        <p>-x² cos x + 2x sin x + 2 cos x + C</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Problems</h3>
+            <ol>
+                <li>∫ x cos x dx</li>
+                <li>∫ x ln x dx</li>
+                <li>∫ eˣ sin x dx (Hint: Requires cycling)</li>
+            </ol>
+            <button id="show-answers" onclick="toggleAnswers()">Show Answers</button>
+            <div class="hidden-content" id="practice-answers">
+                <ol>
+                    <li>x sin x + cos x + C</li>
+                    <li>(x² ln x)/2 - x²/4 + C</li>
+                    <li>(eˣ sin x - eˣ cos x)/2 + C</li>
+                </ol>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
