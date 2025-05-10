@@ -1,0 +1,168 @@
+/* Basic layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 0px 1fr; /* Sidebar is hidden initially */
+    grid-template-areas: 
+        "header header"
+        "sidebar main";
+    transition: grid-template-columns 0.3s ease;
+}
+
+/* Header */
+header {
+    grid-area: header;
+    background-color: #0f1211;
+    text-align: center;
+    color: white;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Hamburger Menu Button */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 42px;
+    left: 37px;
+    z-index: 100;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+/* When the sidebar is open, change the hamburger icon */
+.menu-toggle.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px); /* First bar rotates */
+}
+
+.menu-toggle.open .bar:nth-child(2) {
+    opacity: 0; /* Second bar disappears */
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px); /* Third bar rotates */
+}
+
+
+/* Sidebar (initially hidden off-screen) */
+.sidebar {
+    grid-area: sidebar;
+    background-color: #f1f1f1;
+    height: 200px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    position: fixed;
+    left: -400px; /* Sidebar is hidden off-screen */
+    top: 110px;
+    width: 250px;
+    height: 100%;
+    transition: left 0.3s ease;
+}
+
+/* Sidebar links */
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 8px 0;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    color: #a6d2c2;
+}
+
+/* Show the sidebar when the 'open' class is added */
+.sidebar.open {
+    left: 0; /* Slide in sidebar */
+}
+
+body.open-sidebar {
+    grid-template-columns: 75px 1fr; /* Adjust content width when sidebar is open */
+}
+
+body.open-sidebar main{
+    margin-left: 250px;
+}
+
+/* Main Content */
+main {
+    grid-area: main;
+    padding: 20px;
+    line-height: 1.6;
+    transition: margin-left 0.3s ease; /* Smooth transition when content adjusts */
+}
+
+/* Solution Toggle button */
+.hidden-content {
+    display: none;
+}
+
+.hidden-content.show {
+    display: block;
+}
+
+.feedback {
+    margin-top: 10px;
+}
+
+/* Ensure that the sidebar and main content appear properly */
+.active {
+    font-weight: bold;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+.video-container {
+    position: relative;
+    width: 850px;
+}
+
+.thumbnail-container {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
+
+.video-thumbnail {
+    width: 100%;
+    display: block;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+video {
+    display: none;  /* Hide the video initially */
+    width: 100%;
+    margin-top: 20px;
+}
+
