@@ -1,0 +1,124 @@
+
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+    
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            sidebarLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+});
+
+function toggleSolution(id) {
+    const solution = document.getElementById(id);
+    const content = solution.querySelector('.hidden-content');
+    content.classList.toggle('show');
+}
+
+
+window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const showAnswersBtn = document.getElementById('show-answers');
+    if (showAnswersBtn) {
+        showAnswersBtn.addEventListener('click', function() {
+            const answers = document.getElementById('practice-answers');
+            answers.classList.toggle('show');
+            this.textContent = answers.classList.contains('show') ? 
+                'Hide Answers' : 'Show Answers';
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const links = document.querySelectorAll('.sidebar a');
+    
+    links.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (currentPage === linkPage || 
+            (currentPage === 'index.html' && linkPage === '#') || 
+            link.classList.contains('active')) {
+            link.classList.add('active');
+        }
+    });
+
+
+
+    const examples = document.querySelectorAll('.example');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    examples.forEach(example => {
+        example.style.opacity = 0;
+        example.style.transform = 'translateY(20px)';
+        example.style.transition = 'opacity 0.5s, transform 0.5s';
+        observer.observe(example);
+    });
+});
+
+    // Answer checking with multiple valid forms
+    const validAnswers = {
+        1: ['9/2', '4.5', '4.50', '4.5 units²'],
+        2: ['π/2', 'pi/2', '1.57', '1.5708'],
+        3: ['20', '20 J', '20 Joules'],
+        4: ['1/ln2', '1/ln(2)', '1.4427'],
+        5: ['ln(1+√2)', 'ln(1+sqrt(2))', '0.8814']
+    };
+
+    // Check answer buttons
+    const checkButtons = document.querySelectorAll('.check-answer');
+    checkButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const exNum = this.dataset.problem;
+            const userAnswer = document.getElementById(`answer${exNum}`).value.trim();
+            const feedback = document.getElementById(`feedback${exNum}`);
+            
+            if (validAnswers[exNum].includes(userAnswer.toLowerCase())) {
+                feedback.innerHTML = "✓ Correct! Well done!";
+                feedback.className = "feedback correct";
+            } else {
+                feedback.innerHTML = "✗ Incorrect. Try again or click 'Show Solution' for help.";
+                feedback.className = "feedback incorrect";
+            }
+        });
+    });
+
+    // Show solution buttons
+    const solutionButtons = document.querySelectorAll('.show-solution');
+    solutionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const exNum = this.dataset.problem;
+            const feedback = document.getElementById(`feedback${exNum}`);
+            
+            const solutions = [
+                `<p><strong>Solution 1:</strong> Find intersection points at x=-1 and x=2<br>
+                A = ∫<sub>-1</sub><sup>2</sup> [(4-x²)-(x+2)] dx = ∫(-x²-x+2)dx = [-⅓x³-½x²+2x]<sub>-1</sub><sup>2</sup> = 9/2</p>`,
+                
+                `<p><strong>Solution 2:</strong> Using shell method (radius x, height x²)<br>
+                V = 2π ∫<sub>0</sub><sup>1</sup> x·x² dx = 2π ∫x³ dx = 2π[¼x⁴]<sub>0</sub><sup>1</sup> = π/2</p>`,
+                
+                `<p><strong>Solution 3:</strong> W = ∫<sub>1</sub><sup>3</sup> 5x dx = [⁵⁄₂x²]<sub>1</sub><sup>3</sup> = ⁵⁄₂(9-1) = 20 J</p>`,
+                
+                `<p><strong>Solution 4:</strong> f<sub>avg</sub> = (1/ln2)∫<sub>0</sub><sup>ln2</sup> eˣ dx = (1/ln2)[eˣ]<sub>0</sub><sup>ln2</sup> = (2-1)/ln2 = 1/ln2</p>`,
+                
+                `<p><strong>Solution 5:</strong> f'(x) = -tanx<br>
+                L = ∫<sub>0</sub><sup>π/4</sup> √(1+tan²x) dx = ∫secx dx = [ln|secx+tanx|]<sub>0</sub><sup>π/4</sup> = ln(1+√2)</p>`
+            ];
+            
+            feedback.innerHTML = solutions[exNum-1];
+            feedback.className = "feedback solution";
+        });
+    });
