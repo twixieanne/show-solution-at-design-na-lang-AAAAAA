@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Integrals | Integral Calculus</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Integral Calculus Tutorial</h1>
+        <div class="menu-toggle" id="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+    </header>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <h3>Integral Calculus</h3>
+        <a href="index.html">Home</a>
+        <a href="intro.html">Introduction</a>
+        <a href="BasicInt.html">Basic Integrals</a>
+        <a href="sub.html">Substitution</a>
+        <a href="IntByPart.html">Integration by Parts</a>
+        <a href="DefInt.html">Definite Integrals</a>
+        <a href="App.html">Applications</a>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h2>Basic Integrals</h2>
+            <div class="nav-buttons">
+                <a href="intro.html">← Previous</a>
+                <a href="sub.html">Next →</a>
+            </div>
+
+            <div class="theory-section">
+                <h3>Fundamental Integration Rules</h3>
+                <p>These are the building blocks of integral calculus. Memorizing these basic forms will help you solve
+                    more complex problems.</p>
+
+                <div class="video-container">
+                    <div class="thumbnail-container">
+                        <!-- Thumbnail image -->
+                        <img src="Assets/Basic Integration Thumbnail.jpg" alt="Video Thumbnail" class="video-thumbnail">
+                        <!-- Play button icon -->
+                        <button class="play-button" onclick="playVideo()">&#9654;</button>
+                    </div>
+
+                    <video id="video" width="850" controls>
+                        <source src="Assets/Basic Integration Problems.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <p style="font-style: italic; font-size: 14px; color: gray;">Video credit: <strong>The Organic
+                            Chemistry Tutor</strong>. All rights reserved.</p>
+                </div>
+            </div>
+
+            <div class="integral-table">
+                <table>
+                    <tr>
+                        <th>Function</th>
+                        <th>Integral</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>∫ k dx</td>
+                        <td>kx + C</td>
+                        <td>∫ 5 dx = 5x + C</td>
+                    </tr>
+                    <tr>
+                        <td>∫ xⁿ dx (n ≠ -1)</td>
+                        <td>xⁿ⁺¹/(n+1) + C</td>
+                        <td>∫ x³ dx = x⁴/4 + C</td>
+                    </tr>
+                    <tr>
+                        <td>∫ eˣ dx</td>
+                        <td>eˣ + C</td>
+                        <td>∫ eˣ dx = eˣ + C</td>
+                    </tr>
+                    <tr>
+                        <td>∫ 1/x dx</td>
+                        <td>ln|x| + C</td>
+                        <td>∫ 3/x dx = 3ln|x| + C</td>
+                    </tr>
+                    <tr>
+                        <td>∫ sin(x) dx</td>
+                        <td>-cos(x) + C</td>
+                        <td>∫ sin(x) dx = -cos(x) + C</td>
+                    </tr>
+                    <tr>
+                        <td>∫ cos(x) dx</td>
+                        <td>sin(x) + C</td>
+                        <td>∫ cos(x) dx = sin(x) + C</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="examples-section">
+            <h3>Practice Examples</h3>
+
+            <div class="example">
+                <h4>Example 1: Power Rule</h4>
+                <p>Find ∫ x⁵ dx</p>
+                <div class="solution" id="solution1">
+                    <button onclick="toggleSolution('solution1')">Show Solution</button>
+                    <div class="hidden-content">
+                        <p>Using the power rule:</p>
+                        <p>∫ xⁿ dx = xⁿ⁺¹/(n+1) + C</p>
+                        <p>∫ x⁵ dx = x⁶/6 + C</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>Example 2: Constant Multiple</h4>
+                <p>Find ∫ 4eˣ dx</p>
+                <div class="solution" id="solution2">
+                    <button onclick="toggleSolution('solution2')">Show Solution</button>
+                    <div class="hidden-content">
+                        <p>∫ k·f(x) dx = k·∫ f(x) dx</p>
+                        <p>∫ 4eˣ dx = 4∫ eˣ dx</p>
+                        <p>= 4eˣ + C</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>Example 3: Sum Rule</h4>
+                <p>Find ∫ (3x² + 2x + 1) dx</p>
+                <div class="solution" id="solution3">
+                    <button onclick="toggleSolution('solution3')">Show Solution</button>
+                    <div class="hidden-content">
+                        <p>∫ [f(x) + g(x)] dx = ∫ f(x) dx + ∫ g(x) dx</p>
+                        <p>∫ (3x² + 2x + 1) dx = 3∫ x² dx + 2∫ x dx + ∫ 1 dx</p>
+                        <p>= 3(x³/3) + 2(x²/2) + x + C</p>
+                        <p>= x³ + x² + x + C</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
