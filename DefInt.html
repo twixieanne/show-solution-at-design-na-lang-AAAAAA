@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Definite Integrals | Integral Calculus</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Integral Calculus Tutorial</h1>
+        <div class="menu-toggle" id="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+    </header>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <h3>Integral Calculus</h3>
+        <a href="index.html">Home</a>
+        <a href="intro.html">Introduction</a>
+        <a href="BasicInt.html">Basic Integrals</a>
+        <a href="sub.html">Substitution</a>
+        <a href="IntByPart.html">Integration by Parts</a>
+        <a href="DefInt.html">Definite Integrals</a>
+        <a href="App.html">Applications</a>
+    </div>
+
+    <main>
+        <div class="content-container">
+            <h2>Definite Integrals</h2>
+            <div class="nav-buttons">
+                <a href="IntByPart.html">← Previous</a>
+                <a href="App.html">Next →</a>
+            </div>
+
+            <div class="theory-section">
+                <h3>Fundamental Concept</h3>
+                <p>Definite integrals calculate the net area under a curve between two points on the x-axis.</p>
+
+                <div class="formula-box highlight">
+                    <p>∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) - F(a)</p>
+                    <p>where F is the antiderivative of f</p>
+                </div>
+
+                <div class="properties-section">
+                    <h4>Properties of Definite Integrals</h4>
+                    <table>
+                        <tr>
+                            <th>Property</th>
+                            <th>Expression</th>
+                        </tr>
+                        <tr>
+                            <td>Reversed Limits</td>
+                            <td>∫<sub>a</sub><sup>b</sup> f(x) dx = -∫<sub>b</sub><sup>a</sup> f(x) dx</td>
+                        </tr>
+                        <tr>
+                            <td>Zero-Length Interval</td>
+                            <td>∫<sub>a</sub><sup>a</sup> f(x) dx = 0</td>
+                        </tr>
+                        <tr>
+                            <td>Additivity</td>
+                            <td>∫<sub>a</sub><sup>b</sup> f(x) dx + ∫<sub>b</sub><sup>c</sup> f(x) dx =
+                                ∫<sub>a</sub><sup>c</sup> f(x) dx</td>
+                        </tr>
+                        <tr>
+                            <td>Constant Multiple</td>
+                            <td>∫<sub>a</sub><sup>b</sup> k·f(x) dx = k·∫<sub>a</sub><sup>b</sup> f(x) dx</td>
+                        </tr>
+                        <tr>
+                            <td>Sum Rule</td>
+                            <td>∫<sub>a</sub><sup>b</sup> [f(x) + g(x)] dx = ∫<sub>a</sub><sup>b</sup> f(x) dx +
+                                ∫<sub>a</sub><sup>b</sup> g(x) dx</td>
+                        </tr>
+
+                    </table>
+                </div>
+
+                <div class="ftc-section">
+                    <h4>The Fundamental Theorem of Calculus</h4>
+                    <div class="theorem">
+                        <p>If f is continuous on [a, b] and F is an antiderivative of f, then:</p>
+                        <p>∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) - F(a)</p>
+                    </div>
+                    <p>This theorem connects differential and integral calculus and provides a way to evaluate definite
+                        integrals.</p>
+
+                        <div class="video-container">
+                            <div class="thumbnail-container">
+                                <!-- Thumbnail image -->
+                                <img src="Assets/Definite Integrals Thumbnail.jpg" alt="Video Thumbnail" class="video-thumbnail">
+                                <!-- Play button icon -->
+                                <button class="play-button" onclick="playVideo()">&#9654;</button>
+                            </div>
+        
+                            <video id="video" width="850" controls>
+                                <source src="Assets/Definite Integrals.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+
+                    <p style="font-style: italic; font-size: 14px; color: gray;">Video credit: <strong>The Organic Chemistry Tutor</strong>. All rights reserved.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="examples-section">
+            <h3>Worked Examples</h3>
+
+            <div class="example">
+                <h4>Example 1: Basic Definite Integral</h4>
+                <p>Evaluate ∫<sub>1</sub><sup>3</sup> (2x + 1) dx</p>
+                <div class="solution" id="solution1">
+                    <button onclick="toggleSolution('solution1')">Show Solution</button>
+                    <div class="hidden-content">
+                        <p>Find the antiderivative:</p>
+                        <p>F(x) = x² + x + C</p>
+                        <p>Apply the FTC:</p>
+                        <p>F(3) - F(1) = (3² + 3) - (1² + 1) = (9 + 3) - (1 + 1) = 12 - 2 = 10</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>Example 2: Definite Integral with Substitution</h4>
+                <p>Evaluate ∫<sub>0</sub><sup>1</sup> x e<sup>x²</sup> dx</p>
+                <div class="solution" id="solution2">
+                    <button onclick="toggleSolution('solution2')">Show Solution</button>
+                    <div class="hidden-content">
+                        <p>Let u = x² ⇒ du = 2x dx ⇒ x dx = du/2</p>
+                        <p>Change limits: when x=0, u=0; when x=1, u=1</p>
+                        <p>Substitute:</p>
+                        <p>∫<sub>0</sub><sup>1</sup> e<sup>u</sup> (du/2) = ½ e<sup>u</sup>
+                            |<sub>0</sub><sup>1</sup> = ½(e - 1)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>Example 3: Absolute Value Function</h4>
+                <p>Evaluate ∫<sub>-2</sub><sup>3</sup> |x| dx</p>
+                <div class="solution" id="solution3">
+                    <button onclick="toggleSolution('solution3')">Show Solution</button>
+                    <div class="hidden-content">
+                        <p>Split at x=0 where behavior changes:</p>
+                        <p>∫<sub>-2</sub><sup>3</sup> |x| dx = ∫<sub>-2</sub><sup>0</sup> -x dx +
+                            ∫<sub>0</sub><sup>3</sup> x dx</p>
+                        <p>= -½x² |<sub>-2</sub><sup>0</sup> + ½x² |<sub>0</sub><sup>3</sup></p>
+                        <p>= [0 - (-½(4))] + [½(9) - 0] = 2 + 4.5 = 6.5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Problems</h3>
+            <ol>
+                <li>∫<sub>0</sub><sup>π</sup> sin x dx</li>
+                <li>∫<sub>1</sub><sup>e</sup> (1/x) dx</li>
+                <li>∫<sub>-1</sub><sup>1</sup> (x³ + 2x) dx</li>
+            </ol>
+            <button id="show-answers" onclick="toggleAnswers()">Show Answers</button>
+            <div class="hidden-content" id="practice-answers">
+                <ol>
+                    <li>2</li>
+                    <li>1</li>
+                    <li>0 (odd function on symmetric interval)</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="visualization">
+            <h3>Geometric Interpretation</h3>
+            <div class="graph-placeholder">
+                <!-- Insert the image here -->
+                <img src="Assets/def integral.png" alt="Graph showing area under curve"
+                    style="width: 300px; max-width:600px;">
+                <p>Definite integral represents the net area between the curve and x-axis</p>
+                <ul>
+                    <li>Areas above x-axis are positive</li>
+                    <li>Areas below x-axis are negative</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </main>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
