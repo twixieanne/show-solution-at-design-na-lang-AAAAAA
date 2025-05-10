@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substitution Method | Integral Calculus</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Integral Calculus Tutorial</h1>
+        <div class="menu-toggle" id="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+    </header>
+    </header>
+    
+    <div class="sidebar" id="sidebar">
+        <h3>Integral Calculus</h3>
+        <a href="index.html">Home</a>
+        <a href="intro.html">Introduction</a>
+        <a href="BasicInt.html">Basic Integrals</a>
+        <a href="sub.html">Substitution</a>
+        <a href="IntByPart.html">Integration by Parts</a>
+        <a href="DefInt.html">Definite Integrals</a>
+        <a href="App.html">Applications</a>
+    </div>
+    
+    <main>
+        <div class="content-container">
+            <h2>Integration by Substitution</h2>
+            <div class="nav-buttons">
+                <a href="BasicInt.html">← Previous</a>
+                <a href="IntByPart.html">Next →</a>
+            </div>
+            
+            <div class="theory-section">
+                <h3>The Substitution Method</h3>
+                <p>Substitution is often called the "reverse chain rule" and is used when an integral contains a composite function.</p>
+                
+                <div class="method-steps">
+                    <h4>Step-by-Step Process:</h4>
+                    <ol>
+                        <li>Identify the inner function (let this be <em>u</em>)</li>
+                        <li>Compute <em>du/dx</em> and solve for <em>du</em></li>
+                        <li>Substitute <em>u</em> and <em>du</em> into the integral</li>
+                        <li>Integrate with respect to <em>u</em></li>
+                        <li>Substitute back the original variable</li>
+                    </ol>
+                    
+                    <div class="formula-box">
+                        <p>If u = g(x), then:</p>
+                        <p>∫ f(g(x))g'(x) dx = ∫ f(u) du</p>
+                        <p>Video that explain the lesson</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="examples-section">
+                <h3>Examples with Solutions</h3>
+                
+                <div class="example">
+                    <h4>Example 1: Basic Substitution</h4>
+                    <p>Find ∫ 2x(x² + 1)³ dx</p>
+                    <div class="solution" id="solution1">
+                        <button onclick="toggleSolution('solution1')">Show Solution</button>
+                        <div class="hidden-content">
+                            <p>Let u = x² + 1</p>
+                            <p>Then du = 2x dx ⇒ dx = du/(2x)</p>
+                            <p>Substitute into the integral:</p>
+                            <p>∫ 2x(u)³ du/(2x) = ∫ u³ du</p>
+                            <p>= u⁴/4 + C</p>
+                            <p>= (x² + 1)⁴/4 + C</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="example">
+                    <h4>Example 2: Trigonometric Function</h4>
+                    <p>Find ∫ sin(3x) dx</p>
+                    <div class="solution" id="solution2">
+                        <button onclick="toggleSolution('solution2')">Show Solution</button>
+                        <div class="hidden-content">
+                            <p>Let u = 3x</p>
+                            <p>Then du = 3 dx ⇒ dx = du/3</p>
+                            <p>Substitute into the integral:</p>
+                            <p>∫ sin(u) du/3 = ⅓ ∫ sin(u) du</p>
+                            <p>= -⅓ cos(u) + C</p>
+                            <p>= -⅓ cos(3x) + C</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="example">
+                    <h4>Example 3: Definite Integral</h4>
+                    <p>Evaluate ∫₀¹ 5x√(1 - x²) dx</p>
+                    <div class="solution" id="solution3">
+                        <button onclick="toggleSolution('solution3')">Show Solution</button>
+                        <div class="hidden-content">
+                            <p>Let u = 1 - x²</p>
+                            <p>Then du = -2x dx ⇒ x dx = -du/2</p>
+                            <p>Change limits: when x=0, u=1; when x=1, u=0</p>
+                            <p>Substitute:</p>
+                            <p>∫₀¹ 5√u (-du/2) = ⁵⁄₂ ∫₁⁰ √u du</p>
+                            <p>= ⁵⁄₂ [⅔ u³⁄²]₁⁰ = ⁵⁄₃ (0 - 1) = -⁵⁄₃</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="practice-section">
+                <h3>Practice Problems</h3>
+                <ol>
+                    <li>∫ x²√(x³ + 1) dx</li>
+                    <li>∫ eˣ / (1 + eˣ) dx</li>
+                    <li>∫ cos(5x) dx</li>
+                </ol>
+                <button id="show-answers" onclick="toggleAnswers()">Show Answers</button>
+                <div class="hidden-content" id="practice-answers">
+                    <ol>
+                        <li>⅔(x³ + 1)³⁄² + C</li>
+                        <li>ln(1 + eˣ) + C</li>
+                        <li>⅕ sin(5x) + C</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
